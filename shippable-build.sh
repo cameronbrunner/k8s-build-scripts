@@ -2,14 +2,20 @@
 set -x
 
 export KUBE_TEST_API_VERSIONS=v1 KUBE_TEST_ETCD_PREFIXES=registry
+export BASE_BRANCH=
 
-cd /scratch/src
+source $HOME/.gvm/scripts/gvm
+
+mkdir -p /scratch/build/k8s.io
+mv /scratch/src/kubernetes /scratch/build/k8s.io/kubernetes
+cd /scratch/build
 
 gvm install go1.4
 gvm use go1.4
+cd /scratch/build/k8s.io/kubernetes
 
 ./hack/travis/install-etcd.sh
-export GOPATH=/scratch/src
+export GOPATH=/scratch/build
 
 export PATH=$GOPATH/bin:./third_party/etcd:$PATH
 
