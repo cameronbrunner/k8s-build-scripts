@@ -6,13 +6,13 @@ export BASE_BRANCH=
 
 source $HOME/.gvm/scripts/gvm
 
-mkdir -p /scratch/build/k8s.io
-mv /scratch/src/kubernetes /scratch/build/k8s.io/kubernetes
+mkdir -p /scratch/build/src/k8s.io
+mv /scratch/src/kubernetes /scratch/build/src/k8s.io/kubernetes
 cd /scratch/build
 
 gvm install go1.4
 gvm use go1.4
-cd /scratch/build/k8s.io/kubernetes
+cd /scratch/build/src/k8s.io/kubernetes
 
 ./hack/travis/install-etcd.sh
 export GOPATH=/scratch/build
