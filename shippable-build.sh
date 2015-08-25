@@ -7,7 +7,7 @@ export BASE_BRANCH=
 source $HOME/.gvm/scripts/gvm
 
 mkdir -p /scratch/build/src/k8s.io
-mv /scratch/src/kubernetes /scratch/build/src/k8s.io/kubernetes
+ln -s /scratch/src/kubernetes /scratch/build/src/k8s.io/kubernetes
 cd /scratch/build
 
 gvm install go1.4
